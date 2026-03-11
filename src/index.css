@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 25% 6%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 22% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 22% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 220 25% 6%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 18% 14%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 170 80% 45%;
+    --accent-foreground: 220 25% 6%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 220 18% 18%;
+    --input: 220 18% 18%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.75rem;
+
+    --font-display: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+
+    --glow-primary: 0 0 20px hsl(210 100% 50% / 0.3);
+    --glow-accent: 0 0 20px hsl(170 80% 45% / 0.3);
+
+    --sidebar-background: 220 22% 10%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 220 25% 6%;
+    --sidebar-accent: 220 20% 16%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 18% 18%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer components {
+  .plate-text {
+    font-family: var(--font-display);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .glow-border {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .drop-zone {
+    @apply border-2 border-dashed rounded-lg transition-all duration-300;
+    border-color: hsl(var(--border));
+  }
+
+  .drop-zone:hover,
+  .drop-zone.active {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--glow-primary);
+    background: hsl(var(--primary) / 0.05);
+  }
+
+  .metric-card {
+    @apply bg-card rounded-lg p-4 border border-border;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .confidence-bar {
+    @apply rounded-full h-3 overflow-hidden;
+    background: hsl(var(--muted));
+  }
+
+  .confidence-bar-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+    background: linear-gradient(90deg, hsl(var(--destructive)), hsl(45 100% 55%), hsl(var(--accent)));
+  }
+}

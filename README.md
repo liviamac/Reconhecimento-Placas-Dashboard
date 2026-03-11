@@ -74,7 +74,13 @@ http://localhost:8000/api/recognize-plate
 Resposta esperada:
 ```json
 {
-  "plate": "ABC1D23",
-  "confidence": 0.95
+  "status": "sucesso",
+  "mensagem": "1 placa(s)/texto(s) detectado(s).",
+  "dados": [
+    {
+      "placa": "CDV 2172",
+      "confianca": 99.32
+    }
+  ]
 }
 ```
